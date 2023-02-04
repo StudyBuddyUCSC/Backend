@@ -2,13 +2,14 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-class Amenity:
-    description = models.CharField()
+class Amenity(models.Model):
+    description = models.CharField(max_length=50)
 
 
 class Comment(models.Model):
     creator = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         ordering = ['created_on']
@@ -29,6 +30,6 @@ class Event(models.Model):
 
 
 class StudyGroup(Event):
-    amentities = models.ManyToManyField(Amenity)
+    amenities = models.ManyToManyField(Amenity)
 
 
