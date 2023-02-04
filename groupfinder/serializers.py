@@ -11,7 +11,7 @@ class AmenitySerializer(serializers.ModelSerializer):
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
-        fields = ['creator', 'content']
+        exclude = ["content_type", "object_id", "content_object"]
 
 
 class LocationSerializer(serializers.ModelSerializer):
@@ -23,13 +23,13 @@ class LocationSerializer(serializers.ModelSerializer):
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
-        fields = ['creator', 'location', 'creation_time', 'meetup_time', 'comments']
+        fields = ['creator', 'location', 'creation_time', 'meetup_time']
 
 
 class StudyGroupSerializer(serializers.ModelSerializer):
     class Meta:
         model = StudyGroup
-        fields = ['creator', 'location', 'creation_time', 'meetup_time', 'comments', 'amenities']
+        fields = ['creator', 'location', 'creation_time', 'meetup_time', 'amenities']
 
 
 class UserSerializer(serializers.ModelSerializer):
