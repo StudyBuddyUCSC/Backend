@@ -37,7 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+<<<<<<< HEAD
     'accountmanager'
+=======
+    'rest_framework',
+>>>>>>> 2a16c8fc3b11b69e2ac6e2402efd90ad80f4af78
 ]
 
 MIDDLEWARE = [
