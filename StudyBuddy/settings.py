@@ -41,7 +41,11 @@ INSTALLED_APPS = [
     'accountmanager'
 =======
     'rest_framework',
+<<<<<<< HEAD
 >>>>>>> 2a16c8fc3b11b69e2ac6e2402efd90ad80f4af78
+=======
+    'groupfinder'
+>>>>>>> 57ab7c8bfc64b72f2b57df5fd3f28af3a16e8a50
 ]
 
 MIDDLEWARE = [

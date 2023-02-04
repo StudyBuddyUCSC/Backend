@@ -16,6 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic.base import TemplateView
+from rest_framework import routers
+from groupfinder import views
+
+router = routers.SimpleRouter
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,4 +28,8 @@ urlpatterns = [
     path("accounts/", include("django.contrib.auth.urls")),
     path("", TemplateView.as_view(template_name="home.html"), name="home"),
     
+    path('studygroups/', views.StudyGroupList.as_view()),
+    path('studygroups/update/<int:pk>/', views.StudyGroupUpdate.as_view()),
+    path('amenities', views.AmenityList.as_view()),
+    path('users/', views.UserList.as_view()),
 ]
