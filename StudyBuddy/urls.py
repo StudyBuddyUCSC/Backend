@@ -24,7 +24,11 @@ router = routers.SimpleRouter
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('studygroups/', views.StudyGroupList.as_view()),
-    path('studygroups/update/<int:pk>/', views.StudyGroupUpdate.as_view()),
+    path('studygroups/<int:pk>/update', views.StudyGroupUpdate.as_view()),
+    path('studygroups/<int:pk>/comments', views.GetStudyGroupComments.as_view()),
     path('amenities', views.AmenityList.as_view()),
+    path('locations', views.LocationsGet.as_view()),
+    path('locations/<int:pk>/update', views.LocationUpdate.as_view()),
+    path('locations/add', views.LocationAdd.as_view()),
     path('users/', views.UserList.as_view()),
 ]
