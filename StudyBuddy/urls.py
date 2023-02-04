@@ -14,7 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.views.generic.base import TemplateView
 from rest_framework import routers
 from groupfinder import views
 
@@ -23,6 +24,10 @@ router = routers.SimpleRouter
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("accounts/", include("accountmanager.urls")),
+    path("accounts/", include("django.contrib.auth.urls")),
+    path("", TemplateView.as_view(template_name="home.html"), name="home"),
+    
     path('studygroups/', views.StudyGroupList.as_view()),
     path('studygroups/<int:pk>/update', views.StudyGroupUpdate.as_view()),
     path('studygroups/<int:pk>/comments', views.GetStudyGroupComments.as_view()),
